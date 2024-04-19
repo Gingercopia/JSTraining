@@ -23,4 +23,15 @@ const backpack = {
     this.strapLength.left = lengthLeft;
     this.strapLength.right = lengthRight;
   },
+  colorChange: function (color) {
+    this.color = color;
+  },
 };
+
+console.log("Backpack Color Before", backpack.color); //print original color
+
+backpack.colorChange("magenta");
+//reassigns magenta as value for color parameter () inside function of the color Change METHOD
+/*call fx to update fx with magenta. can also assign in console with -backpack.colorChange("purple")-
+ */
+console.log("Updated Backpack Color", backpack.color); //print newly assigned color
