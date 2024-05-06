@@ -11,6 +11,6 @@ console.log(`let a: ${a} (${typeof a})`);
 console.log(`let b: ${b} (${typeof b})`);
 console.log(`let c: ${c} (${typeof c})`);
 
-let result = a + b;
+let result = a % b;
 
-console.log("Result: ", result);
+console.log("Result: ", a++);

@@ -7,7 +7,7 @@ class Backpack {
     strapLengthL,
     strapLengthR,
     lidOpen,
-    dateAcquired
+    dateAcquired //new parameter added to class contructor
   ) {
     this.name = name;
     this.volume = volume;
@@ -18,7 +18,7 @@ class Backpack {
       right: strapLengthR,
     };
     this.lidOpen = lidOpen;
-    this.dateAcquired = dateAcquired;
+    this.dateAcquired = dateAcquired; //new property of DateAcquired added
   }
   toggleLid(lidStatus) {
     this.lidOpen = lidStatus;
@@ -32,6 +32,7 @@ class Backpack {
     let acquired = new Date(this.dateAcquired);
     let elapsed = now - acquired; // elapsed time in milliseconds
     let daysSinceAcquired = Math.floor(elapsed / (1000 * 3600 * 24));
+    /*elapsed time in ms / make ms a seconds / 3600 for seconds to become hours / divide by hours*/
     return daysSinceAcquired;
   }
 }

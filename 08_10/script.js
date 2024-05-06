@@ -15,6 +15,7 @@ const formatter = (locale = "en-US", currency = "USD", value) => {
 
 // Callback receives finalTip object, creates and outputs table on the DOM.
 const printHTML = (finalTip) => {
+  //outtputs html table that appends to main in doc; calls in after tipCalculator method runs
   const tipTable = document.createElement("table");
   tipTable.innerHTML = `
     <tr>
@@ -38,7 +39,7 @@ const printHTML = (finalTip) => {
 };
 
 // Create a finalTip object with all the data. Send it to the printHTML callback.
-const tipCalculator = (sum, percentage, locale, currency) => {
+const tipCalculator = (sum, percentage, locale, currency, callback) => {
   let tip = sum * (percentage / 100);
   let total = sum + tip;
 
@@ -48,6 +49,9 @@ const tipCalculator = (sum, percentage, locale, currency) => {
     tip: formatter(locale, currency, tip),
     total: formatter(locale, currency, total),
   };
+
+  //callback(finalTip); //call the exact fx want into other fx. SPECIFIC fx to use after using right now but later it could be a different function
+  printHTML(finalTip); //this gives the same output as callback(finalTip) but not SPECIFIC FX to callback. Put a fx inside a fx VERY COMMON
 };
 
-tipCalculator(29.95, 18, "de-DE", "EUR");
+tipCalculator(29.95, 18, "de-DE", "EUR", printHTML);

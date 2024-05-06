@@ -56,19 +56,26 @@ main.append(newArticle);
 
 const usedStatus = () => {
   let age = everydayPack.backpackAge();
+  age = 523; //add this to test udedStatus fx by changing age value
   let description;
-  if (age >= 30) {
-    if (age >= 365) {
-      if (age >= 1095) {
-        description = "old";
-      } else {
-        description = "used";
-      }
-    } else {
+  switch (
+    true //expression test against in parameter
+  ) {
+    case age < 30:
+      description = "new";
+      break; //stop switch statement from running
+    case age >= 30 && age < 365: //only TRUE if between 30 and 364
       description = "lightly used";
-    }
-  } else {
-    description = "new";
+      break;
+    case age >= 365 && age < 1095: //#days in 3 years
+      description = "used";
+      break;
+    case age >= 1095:
+      description = "old";
+      break;
+    default:
+      //this gives a default value if no condition is met as TRUE
+      console.log("There is no description for ${age}"); //'this is a template literal'
   }
 
   console.log(`
@@ -77,4 +84,4 @@ const usedStatus = () => {
   `);
 };
 
-usedStatus()
+usedStatus();

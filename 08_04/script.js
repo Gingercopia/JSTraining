@@ -10,6 +10,7 @@ const greenPack = {
   pocketNum: 3,
 };
 
+//arrow function: const > name > assign > parameter > arrow fx symbol >{code body}..NO LONGER SAYING THIS IS A FX but using arrow fx syntax
 const addPack = (currentPack) => {
   const newArticle = document.createElement("article");
   newArticle.innerHTML = `

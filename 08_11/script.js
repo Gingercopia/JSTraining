@@ -13,7 +13,8 @@ const everydayPack = new Backpack(
   15,
   26,
   26,
-  false,
+  true, //value is sitting here so return true to if statement
+  //null & undefined values are empty values so it would be false
   "December 5, 2018 15:00:00 PST",
   "../assets/images/everyday.svg"
 );
@@ -41,7 +42,7 @@ const content = `
       everydayPack.strapLength.right
     } inches</span></li>
     <li class="feature backpack__lid">Lid status:<span> ${
-      everydayPack.lidOpen
+      everydayPack.lidOpen ? "open" : "closed" //paste the ternary operator in the object literal for lidOpen. this outputs one or the other value based on the if condition below
     }</span></li>
   </ul>
 `;
@@ -54,3 +55,11 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+if (everydayPack.lidOpen === true) {
+  console.log("Lid is open!");
+} else {
+  console.log("lid is closed");
+}
+
+console.log(everydayPack.lidOpen ? "open" : "closed"); // put condition of everydayPack.lidOpen. ? means if true. : is else.
